@@ -1,0 +1,38 @@
+using NUnit.Framework;
+using TestLibrary;
+
+namespace TestProject
+{
+    [TestFixture]
+    public class ShapeTests
+    {
+        [Test]
+        public void CircleTest()
+        {
+            var circle = new Circle(10);
+
+            Assert.AreEqual(Math.PI * 100, circle.CalculateArea(), 1e-10);
+        }
+
+        [Test]
+        public void TriangleTest()
+        {
+            var triangle = new Triangle(3, 4, 5);
+            Assert.AreEqual(6, triangle.CalculateArea(), 1e-10);
+        }
+
+        [Test]
+        public void RightTriangleTest()
+        {
+            var triangle = new Triangle(3, 4, 5);
+            Assert.IsTrue(triangle.IsRightTriangle());
+        }
+
+        [Test]
+        public void NonRightTriangleTest()
+        {
+            var triangle = new Triangle(3, 4, 6);
+            Assert.IsFalse(triangle.IsRightTriangle());
+        }
+    }
+}
